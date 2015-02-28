@@ -37,6 +37,11 @@ def postTemplate(postId):
     post = db.posts.find_one({'id': postId})
     return dict(post)
 
+@app.get('/write')
+@serveTemplate('write.mako')
+def writeTemplate():
+    return {'title': 'Write a post'}
+
 @app.get('<path:path>')
 def serveStatic(path):
     ''' Fallback routing to anything under '/static' '''
