@@ -6,6 +6,7 @@ from bottle import Bottle, request, response, static_file, HTTPError
 
 import db
 from makoutil import serveTemplate
+from post import Post
 
 PATH_BASE = os.path.dirname(os.path.abspath(__file__))
 
@@ -13,7 +14,7 @@ app = Bottle()
 
 class Error(HTTPError):
     def __init__(self, code, message):
-        super().__init__(status=code, body={'error':message})
+        super().__init__(status=code, body={'message': message})
 
 @app.error(400)
 def error400(error):
@@ -23,22 +24,18 @@ def error400(error):
 @app.post('/post')
 def newPost():
     ''' Create a new post. '''
-    POST_FIELDS = ('body', 'title')
-    post = {k : request.json.get(k) for k in POST_FIELDS}
-    if any(v is None for v in post.values()):
-        # Error: Missing required fields
-        raise Error(400, 'Required fields missing')
-    return 'Good to go'
+    POST_FIELDS = ('body', 'title', 'author')
+    post = Post(request.json)
+    if not post.valid:
+        return Error(400, 'Required fields missing')
+    db.posts.insert(dict(post))
+    return {'id': post.id}
 
-@app.get('/view/<postId>')
-def viewPost(postId):
-    ''' Retrieve data about a post. '''
-    return
-
-@app.get('/post')
+@app.get('/post/<postId>')
 @serveTemplate('post.mako')
-def postTemplate():
-    return {'body': 'Some body', 'title': 'A title'}
+def postTemplate(postId):
+    post = db.posts.find_one({'id': postId})
+    return dict(post)
 
 @app.get('<path:path>')
 def serveStatic(path):
