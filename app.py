@@ -1,4 +1,5 @@
 from bottle import Bottle, request, static_file
+from mako.template import Template
 
 app = Bottle()
 
@@ -16,6 +17,7 @@ def viewPost(postId):
 
 @app.get('/<filePath:path>')
 def serve(filePath):
-    return static_file(filePath, root='.')
+    # For testing
+    return Template(filename=filePath+'.mako').render(title='A title', body='Content')
 
 app.run(host='localhost', port=27134)
