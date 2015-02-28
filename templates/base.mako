@@ -2,7 +2,8 @@
 <head>
 <title>${title}</title>
 </head>
+
 <body>
-<p>${body}</p>
+<%block name="content"/>
 </body>
 </html>
