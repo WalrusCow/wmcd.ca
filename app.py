@@ -1,3 +1,4 @@
+import base64
 import hashlib
 import json
 import os
@@ -57,18 +58,23 @@ def login():
     hasher.update(account['salt'])
     hasher.update(request.forms.password.encode())
     passwordHash = hasher.hexdigest()
-    if passwordHash == account['password_hash']:
-        # Valid login
-        # TODO: Set session id or something...
-        redirect('/write')
-    else:
-        # Invalid login
+    if passwordHash != account['password_hash']:
         return Error(401, 'Invalid password')
+
+    sessionId = base64.b16encode(os.urandom(128)).decode()
+    # TODO: Expire session ids
+    db.sessions.insert({'id': sessionId})
+    # TODO: Use secure=True for prod
+    response.set_cookie('id', sessionId, path='/', httponly=True)#, secure=True)
+    redirect('/write')
 
 @app.get('/write')
 @template.file('write.mako')
 @template.title('New Post')
 def writeTemplate():
+    sessionId = request.get_cookie('id')
+    if db.sessions.find_one({'id': sessionId}) is None:
+        redirect('/login')
     return dict()
 
 @app.get('<path:path>')
