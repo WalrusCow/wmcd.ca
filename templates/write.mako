@@ -8,7 +8,7 @@
 </textarea>
 
 <br>
-<form id="postForm" action="/post" method="post" >
+<form id="postForm" action="/post" method="post">
 <input type="hidden" name="author" value="William McDonald"/>
 <input type="submit" value="Post"/>
 </form>

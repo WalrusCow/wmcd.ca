@@ -1,7 +1,7 @@
-import os
+import hashlib
 import json
+import os
 
-import pymongo
 from bottle import Bottle, request, response, static_file, HTTPError, redirect
 
 import db
@@ -21,6 +21,10 @@ def error400(error):
     response.content_type = 'application/json'
     return json.dumps(error.body)
 
+@app.error(401)
+def error401(error):
+    return error.body
+
 @app.post('/post')
 def newPost():
     ''' Create a new post. '''
@@ -35,6 +39,31 @@ def newPost():
 def postTemplate(postId):
     post = db.posts.find_one({'id': postId})
     return dict(post)
+
+@app.get('/login')
+@template.file('login.mako')
+@template.title('Sign In')
+def loginTemplate():
+    return dict()
+
+@app.post('/login')
+def login():
+    account = db.accounts.find_one({'user_id': request.forms.user})
+    if account is None:
+        return Error(401, 'Invalid username')
+    account['salt']
+
+    hasher = hashlib.sha256()
+    hasher.update(account['salt'])
+    hasher.update(request.forms.password.encode())
+    passwordHash = hasher.hexdigest()
+    if passwordHash == account['password_hash']:
+        # Valid login
+        # TODO: Set session id or something...
+        redirect('/write')
+    else:
+        # Invalid login
+        return Error(401, 'Invalid password')
 
 @app.get('/write')
 @template.file('write.mako')
