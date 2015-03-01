@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>${title}</title>
+<%block name="styles"/>
 </head>
 
 <body>

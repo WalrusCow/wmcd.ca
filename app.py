@@ -2,10 +2,10 @@ import os
 import json
 
 import pymongo
-from bottle import Bottle, request, response, static_file, HTTPError
+from bottle import Bottle, request, response, static_file, HTTPError, redirect
 
 import db
-from makoutil import serveTemplate
+import template
 from post import Post
 
 PATH_BASE = os.path.dirname(os.path.abspath(__file__))
@@ -24,23 +24,23 @@ def error400(error):
 @app.post('/post')
 def newPost():
     ''' Create a new post. '''
-    POST_FIELDS = ('body', 'title', 'author')
-    post = Post(request.json)
+    post = Post(request.forms)
     if not post.valid:
         return Error(400, 'Required fields missing')
     db.posts.insert(dict(post))
-    return {'id': post.id}
+    redirect('/post/' + post.id)
 
 @app.get('/post/<postId>')
-@serveTemplate('post.mako')
+@template.file('post.mako')
 def postTemplate(postId):
     post = db.posts.find_one({'id': postId})
     return dict(post)
 
 @app.get('/write')
-@serveTemplate('write.mako')
+@template.file('write.mako')
+@template.title('New Post')
 def writeTemplate():
-    return {'title': 'Write a post'}
+    return dict()
 
 @app.get('<path:path>')
 def serveStatic(path):
