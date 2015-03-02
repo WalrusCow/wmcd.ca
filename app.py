@@ -2,10 +2,11 @@ import json
 import os
 
 from bottle import Bottle, request, response, static_file, HTTPError, redirect
+from markdown2 import markdown
 
 import db
+import posts
 import template
-from post import Post
 from login import loginUser, requiresLogin
 
 PATH_BASE = os.path.dirname(os.path.abspath(__file__))
@@ -29,10 +30,16 @@ def error401(error):
 @requiresLogin
 def newPost():
     ''' Create a new post. '''
-    post = Post(request.forms)
+    # Map form fields to post fields
+    postData = {
+        'body': request.forms['body'],
+        'title': request.forms['title'],
+        'author': request.forms['author']
+    }
+    post = posts.Post(postData)
     if not post.valid:
         return Error(400, 'Required fields missing')
-    db.posts.insert(dict(post))
+    posts.create(post)
     redirect('/post/' + post.id)
 
 @app.post('/login')
@@ -49,17 +56,23 @@ def login():
     response.set_cookie('user', user, path='/', httponly=True)#, secure=True)
     redirect('/write')
 
-@app.get('/post/<postId>')
-@template.file('post.mako')
-def postTemplate(postId):
-    post = db.posts.find_one({'id': postId})
-    return dict(post)
-
 @app.get('/login')
 @template.file('login.mako')
 @template.title('Sign In')
 def loginTemplate():
     return dict()
+
+@app.get('/post/<postId>')
+@template.file('post.mako')
+def postTemplate(postId):
+    post = posts.retrieve(postId)
+    if post is None:
+        return Error(404, 'No matching post found!')
+    return {
+        'body': markdown(post.body),
+        'title': post.title,
+        'author': post.author
+    }
 
 @app.get('/write')
 @template.file('write.mako')
