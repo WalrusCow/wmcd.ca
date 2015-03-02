@@ -1,5 +1,3 @@
-import base64
-import hashlib
 import json
 import os
 
@@ -8,6 +6,7 @@ from bottle import Bottle, request, response, static_file, HTTPError, redirect
 import db
 import template
 from post import Post
+from login import loginUser, requiresLogin
 
 PATH_BASE = os.path.dirname(os.path.abspath(__file__))
 
@@ -27,6 +26,7 @@ def error401(error):
     return error.body
 
 @app.post('/post')
+@requiresLogin
 def newPost():
     ''' Create a new post. '''
     post = Post(request.forms)
@@ -34,6 +34,20 @@ def newPost():
         return Error(400, 'Required fields missing')
     db.posts.insert(dict(post))
     redirect('/post/' + post.id)
+
+@app.post('/login')
+def login():
+    user = request.forms.user.lower()
+    password = request.forms.password
+
+    session = loginUser(user, password)
+    if type(session) == str:
+        return Error(401, session)
+
+    # TODO: Use secure=True for prod
+    response.set_cookie('id', session.id, path='/', httponly=True)#, secure=True)
+    response.set_cookie('user', user, path='/', httponly=True)#, secure=True)
+    redirect('/write')
 
 @app.get('/post/<postId>')
 @template.file('post.mako')
@@ -47,34 +61,11 @@ def postTemplate(postId):
 def loginTemplate():
     return dict()
 
-@app.post('/login')
-def login():
-    account = db.accounts.find_one({'user_id': request.forms.user})
-    if account is None:
-        return Error(401, 'Invalid username')
-    account['salt']
-
-    hasher = hashlib.sha256()
-    hasher.update(account['salt'])
-    hasher.update(request.forms.password.encode())
-    passwordHash = hasher.hexdigest()
-    if passwordHash != account['password_hash']:
-        return Error(401, 'Invalid password')
-
-    sessionId = base64.b16encode(os.urandom(128)).decode()
-    # TODO: Expire session ids
-    db.sessions.insert({'id': sessionId})
-    # TODO: Use secure=True for prod
-    response.set_cookie('id', sessionId, path='/', httponly=True)#, secure=True)
-    redirect('/write')
-
 @app.get('/write')
 @template.file('write.mako')
 @template.title('New Post')
+@requiresLogin
 def writeTemplate():
-    sessionId = request.get_cookie('id')
-    if db.sessions.find_one({'id': sessionId}) is None:
-        redirect('/login')
     return dict()
 
 @app.get('<path:path>')

@@ -8,14 +8,16 @@ SALT_SIZE = 128
 
 def main():
     ''' Read a username and password from input and sign up that user. '''
-    user = input('Username: ')
+    user = None
+    while not user:
+        user = input('Username: ').lower()
     while True:
         firstPass = getpass('Enter password: ')
         secondPass = getpass('Repeat password: ')
         if firstPass == secondPass: break
         print('Passwords did not match!')
 
-    salt = os.urandom(SALT_SIZE)
+    salt = os.urandom(SALT_SIZE).decode()
     hasher = hashlib.sha256()
     hasher.update(salt)
     hasher.update(firstPass.encode())
