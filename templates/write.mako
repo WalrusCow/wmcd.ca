@@ -7,7 +7,7 @@
            required="true" placeholder="Title"/>
     <br/>
     <textarea name="body" form="postForm" required="true" rows="30"
-              cols="80" placeholder="Write something..."> </textarea>
+              id="input" cols="80" placeholder="Write something..."> </textarea>
 
     <br/>
     <form id="postForm" action="/post" method="post">
@@ -16,13 +16,14 @@
     </form>
   </div>
 
-  <div class="preview">
-    This will be the preview area!
+  <div class="preview" id="output">
+    Write something...
   </div>
 </main>
 </%block>
 
 <%block name="scripts">
+<script src="/js/lib/markdown.min.js"></script>
 <script src="/js/write.js"></script>
 </%block>
 
