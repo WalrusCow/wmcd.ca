@@ -1,8 +1,23 @@
 <%inherit file="base.mako"/>
 
 <%block name="content">
-<h1>${title}</h1>
-<h2>${author}</h2>
-<h3>${timestamp}</h3>
+<main class="flex-center">
+<div class="post content">
+<h1 class="mainTitle">${title}</h1>
+
+<div class="subtitle">
+<p class="author">${author}</p>
+<p class="date">${timestamp}</p>
+</div>
+
+<div class="post-body">
 ${body}
+</div>
+
+</div>
+</main>
+</%block>
+
+<%block name="styles">
+<link href="/css/post.css" rel="stylesheet"/>
 </%block>

@@ -2,7 +2,7 @@
 
 <%block name="content">
 <main class="flex-center">
-  <div class="write">
+  <div class="write content">
     <input name="title" form="postForm" type="text"
            required="true" placeholder="Title"/>
     <br/>
@@ -16,7 +16,7 @@
     </form>
   </div>
 
-  <div class="preview" id="output">
+  <div class="post content" id="output">
     Write something...
   </div>
 </main>
@@ -28,5 +28,6 @@
 </%block>
 
 <%block name="styles">
+<link href="/css/post.css" rel="stylesheet"/>
 <link href="/css/write.css" rel="stylesheet"/>
 </%block>

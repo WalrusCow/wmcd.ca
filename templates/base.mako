@@ -2,6 +2,7 @@
 <head>
 <title>${title}</title>
 <%block name="styles"/>
+<link href="/css/base.css" rel="stylesheet"/>
 </head>
 
 <body>
