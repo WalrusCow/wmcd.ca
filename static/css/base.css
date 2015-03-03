@@ -13,11 +13,22 @@ h1 {
   margin-top: 0;
 }
 
+code {
+  white-space: pre;
+}
+
+a:link {
+  color: #ff0090;
+  text-decoration: none;
+}
+a:link:hover {
+  color: #af0063;
+}
+
 .flex-center {
   display: flex;
   justify-content: center;
 }
-
 
 .flex-center > div {
   flex: 1;
