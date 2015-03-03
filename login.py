@@ -24,7 +24,7 @@ def loginUser(user, password):
         return 'No such account'
 
     hasher = hashlib.sha256()
-    hasher.update(account['salt'])
+    hasher.update(account['salt'].encode())
     hasher.update(password.encode())
     passwordHash = hasher.hexdigest()
     if passwordHash != account['password_hash']:

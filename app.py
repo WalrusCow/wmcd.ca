@@ -71,7 +71,8 @@ def postTemplate(postId):
     return {
         'body': markdown(post.body),
         'title': post.title,
-        'author': post.author
+        'author': post.author,
+        'timestamp': post.timestamp.strftime('%B %d, %Y')
     }
 
 @app.get('/write')

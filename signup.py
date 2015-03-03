@@ -1,3 +1,4 @@
+import base64
 import os
 import hashlib
 from getpass import getpass
@@ -17,9 +18,9 @@ def main():
         if firstPass == secondPass: break
         print('Passwords did not match!')
 
-    salt = os.urandom(SALT_SIZE).decode()
+    salt = base64.b64encode(os.urandom(SALT_SIZE)).decode()
     hasher = hashlib.sha256()
-    hasher.update(salt)
+    hasher.update(salt.encode())
     hasher.update(firstPass.encode())
     hash = hasher.hexdigest()
     db.accounts.insert({'user_id': user, 'salt': salt, 'password_hash': hash})
