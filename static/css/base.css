@@ -5,18 +5,30 @@ body {
   font: 16px/20px sans-serif;
 }
 
-.content {
-  background: #c3c3c3;
-  padding: 15px;
-  width: 680px;
-  margin: 5px;
+#canvasWrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
-a:link {
+#graphCanvas {
+  position: absolute;
+  top: 0;
+}
+
+.content {
+  padding: 15px;
+  margin: 5px;
+  width: 680px;
+}
+
+a:link, a:visited {
   color: #ff0090;
   text-decoration: none;
 }
-a:link:hover {
+a:link:hover, a:visited:hover {
   color: #af0063;
 }
 
@@ -27,6 +39,21 @@ a:link:hover {
 
 main {
   min-width: 680px;
+  position: relative;
+}
+
+.main-content {
+  background: #c3c3c3;
+  padding: 15px;
+  margin: 5px;
+}
+
+.inline {
+  display: inline;
+}
+
+.post {
+  margin: 10px 0;
 }
 
 /*
