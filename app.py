@@ -1,6 +1,7 @@
 import json
 import os
 
+import pymongo
 from bottle import Bottle, request, response, static_file, HTTPError, redirect
 from markdown2 import markdown
 
@@ -68,6 +69,9 @@ def postTemplate(postId):
     post = posts.retrieve(postId)
     if post is None:
         return Error(404, 'No matching post found!')
+    return postForTemplate(post)
+
+def postForTemplate(post):
     return {
         'body': markdown(post.body),
         'title': post.title,
@@ -81,6 +85,13 @@ def postTemplate(postId):
 @requiresLogin
 def writeTemplate():
     return dict()
+
+@app.get('/')
+@template.file('main.mako')
+@template.title("William's Blog")
+def indexTemplate():
+    results = db.posts.find(limit=5, sort=[('timestamp', pymongo.DESCENDING)])
+    return {'posts': list(postForTemplate(posts.Post(p)) for p in results)}
 
 @app.get('<path:path>')
 def serveStatic(path):
