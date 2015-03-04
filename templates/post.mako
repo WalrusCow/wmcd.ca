@@ -1,7 +1,6 @@
 <%inherit file="base.mako"/>
 
 <%block name="content">
-<main class="flex-center">
 <div class="post content">
 <h1 class="mainTitle">${title}</h1>
 
@@ -9,13 +8,13 @@
 <p class="author">${author}</p>
 <p class="date">${timestamp}</p>
 </div>
+<hr>
 
 <div class="post-body">
 ${body}
 </div>
 
 </div>
-</main>
 </%block>
 
 <%block name="styles">

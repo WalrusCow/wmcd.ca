@@ -1,7 +1,7 @@
 <%inherit file="base.mako"/>
 
 <%block name="content">
-<main class="flex-center">
+<div class="flex-center">
   <div class="write content">
     <input name="title" form="postForm" type="text"
            required="true" placeholder="Title"/>
@@ -19,7 +19,7 @@
   <div class="post content" id="output">
     Write something...
   </div>
-</main>
+</div>
 </%block>
 
 <%block name="scripts">

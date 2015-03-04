@@ -14,7 +14,7 @@ ${makePost(post)}
 
 <%def name="makePost(post)">
 <div class="post">
-<h2>${post['title']}</h2>
+<h2><a href="/post/${post['id']}">${post['title']}</a></h2>
 <p class="date">${post['timestamp']}</p>
 </div>
 </%def>

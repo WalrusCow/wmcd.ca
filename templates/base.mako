@@ -6,7 +6,13 @@
 </head>
 
 <body>
+<main class="flex-center">
+<div class="content-flex">
+<h1>William's Blog</h1>
+
 <%block name="content"/>
+</div>
+</main>
 </body>
 
 <%block name="scripts"/>

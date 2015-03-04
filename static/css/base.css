@@ -1,3 +1,6 @@
+/*
+ * Global styling
+ */
 body {
   font: 16px/20px sans-serif;
 }
@@ -5,16 +8,8 @@ body {
 .content {
   background: #c3c3c3;
   padding: 15px;
-  max-width: 680px;
+  width: 680px;
   margin: 5px;
-}
-
-h1 {
-  margin-top: 0;
-}
-
-code {
-  white-space: pre;
 }
 
 a:link {
@@ -30,6 +25,31 @@ a:link:hover {
   justify-content: center;
 }
 
-.flex-center > div {
-  flex: 1;
+main {
+  min-width: 680px;
+}
+
+/*
+ * Styling for post/markdown
+ */
+.subtitle p {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.mainTitle {
+  margin-bottom: 8px;
+}
+
+.date {
+  float: right;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+code {
+  white-space: pre;
 }

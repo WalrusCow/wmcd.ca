@@ -76,6 +76,7 @@ def postForTemplate(post):
         'body': markdown(post.body),
         'title': post.title,
         'author': post.author,
+        'id': post.id,
         'timestamp': post.timestamp.strftime('%B %d, %Y')
     }
 
