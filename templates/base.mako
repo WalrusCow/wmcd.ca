@@ -10,13 +10,26 @@
   <canvas id="graphCanvas">Please use a modern browser</canvas>
 </div>
 
-<main class="flex-center">
-<div class="main-content">
-<h1>William's Blog</h1>
+<div class="wrapper">
 
+<div class="flex-center">
+<div class="content">
+<span class="nav-item">William McDonald</span>
+<ul class="nav-menu">
+<li class="nav-item"><a href="/">Blog</a></li>
+<li class="nav-item"><a href="/">Code</a></li>
+<li class="nav-item"><a href="/">GitHub</a></li>
+</ul>
+</div>
+</div>
+
+<main class="flex-center">
+
+<div class="main-content">
 <%block name="content"/>
 </div>
 </main>
+</div>
 </body>
 
 <%block name="scripts"/>

@@ -3,11 +3,7 @@
 <%block name="content">
 <div class="post content">
 <h1 class="mainTitle">${title}</h1>
-
-<div class="subtitle">
-<p class="author">${author}</p>
-<p class="date">${timestamp}</p>
-</div>
+<div class="subtitle">${timestamp}</div>
 <hr>
 
 <div class="post-body">

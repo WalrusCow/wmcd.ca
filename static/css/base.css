@@ -3,6 +3,8 @@
  */
 body {
   font: 16px/20px sans-serif;
+  background-color: rgb(54, 54, 54);
+  color: rgb(203, 203, 203);
 }
 
 #canvasWrapper {
@@ -18,10 +20,12 @@ body {
   top: 0;
 }
 
+/* A content block (header, blog post, etc) */
 .content {
   padding: 15px;
   margin: 5px;
   width: 680px;
+  background-color: rgba(41, 41, 41, 0.95);
 }
 
 a:link, a:visited {
@@ -37,23 +41,34 @@ a:link:hover, a:visited:hover {
   justify-content: center;
 }
 
-main {
-  min-width: 680px;
+.wrapper {
   position: relative;
 }
 
-.main-content {
-  background: #c3c3c3;
-  padding: 15px;
-  margin: 5px;
-}
-
-.inline {
+.nav-menu {
   display: inline;
+  margin: 0;
+  float: right;
 }
 
-.post {
+.nav-menu li {
+  display: inline;
+  padding: 20px 20px;
+}
+
+.nav-item {
+  font-weight: bold;
+}
+
+/*
+ * Home page specific styling
+ */
+.post-list {
   margin: 10px 0;
+}
+
+.post-list .post-title {
+  display: inline;
 }
 
 /*

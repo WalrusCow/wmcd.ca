@@ -88,7 +88,7 @@ def writeTemplate():
     return dict()
 
 @app.get('/')
-@template.file('main.mako')
+@template.file('home.mako')
 @template.title("William's Blog")
 def indexTemplate():
     results = db.posts.find(limit=5, sort=[('timestamp', pymongo.DESCENDING)])
