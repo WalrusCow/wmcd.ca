@@ -9,7 +9,17 @@
   canvas.height = wrapper.clientHeight;
   canvas.width = wrapper.clientWidth;
 
+
   requirejs(['graph/generate'], function(generateGraph) {
-    generateGraph({ canvas: 'graphCanvas' });
+    var bgColour = window.getComputedStyle(document.body).backgroundColor;
+    generateGraph({
+      canvas: 'graphCanvas',
+      graph: {
+        node: {
+          fillColour: bgColour,
+          colour: '#bc74ff'
+        }
+      }
+    });
   });
 })();
