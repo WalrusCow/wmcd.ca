@@ -29,11 +29,12 @@ body {
 }
 
 a:link, a:visited {
-  color: #ff0090;
+  color: #bcbaff;
   text-decoration: none;
 }
+
 a:link:hover, a:visited:hover {
-  color: #af0063;
+  color: #bc74ff;
 }
 
 .flex-center {
