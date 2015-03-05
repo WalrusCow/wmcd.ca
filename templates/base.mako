@@ -2,7 +2,7 @@
 <head>
 <title>${title}</title>
 <%block name="styles"/>
-<link href="/css/base.css" rel="stylesheet"/>
+<link href="/css/main.css" rel="stylesheet"/>
 </head>
 
 <body>
