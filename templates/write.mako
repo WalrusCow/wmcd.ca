@@ -26,8 +26,3 @@
 <script src="/js/lib/markdown.min.js"></script>
 <script src="/js/write.js"></script>
 </%block>
-
-<%block name="styles">
-<link href="/css/post.css" rel="stylesheet"/>
-<link href="/css/write.css" rel="stylesheet"/>
-</%block>

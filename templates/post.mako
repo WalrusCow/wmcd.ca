@@ -12,7 +12,3 @@ ${body}
 
 </div>
 </%block>
-
-<%block name="styles">
-<link href="/css/post.css" rel="stylesheet"/>
-</%block>
