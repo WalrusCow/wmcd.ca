@@ -25,7 +25,7 @@ body {
   padding: 15px;
   margin: 5px;
   width: 680px;
-  background-color: rgba(41, 41, 41, 0.95);
+  background-color: rgba(41, 41, 41, 0.90);
 }
 
 a:link, a:visited {
@@ -35,6 +35,13 @@ a:link, a:visited {
 
 a:link:hover, a:visited:hover {
   color: #bc74ff;
+}
+
+hr {
+  border-bottom: 1px solid;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
 }
 
 .flex-center {
@@ -95,4 +102,15 @@ h1 {
 
 code {
   white-space: pre;
+}
+
+/*
+ * Additional post page styling
+ */
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+}
+.next-post {
+  text-align: right;
 }

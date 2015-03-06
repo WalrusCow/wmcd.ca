@@ -69,9 +69,17 @@ def postTemplate(postId):
     post = posts.retrieve(postId)
     if post is None:
         return Error(404, 'No matching post found!')
-    return postForTemplate(post)
+    prevPost = posts.previousPost(post)
+    nextPost = posts.nextPost(post)
+    return {
+        'title': post.title,
+        'post': postForTemplate(post),
+        'prevPost': postForTemplate(prevPost) if prevPost else None,
+        'nextPost': postForTemplate(nextPost) if nextPost else None
+    }
 
 def postForTemplate(post):
+    if not post: return dict()
     return {
         'body': markdown(post.body),
         'title': post.title,

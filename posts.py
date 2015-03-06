@@ -1,3 +1,4 @@
+import functools
 import hashlib
 from datetime import datetime
 
@@ -29,10 +30,29 @@ class Post():
             hasher.update(str(getattr(self, field)).encode())
         return hasher.hexdigest()
 
+def toPost(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        postData = func(*args, **kwargs)
+        return Post(postData) if postData is not None else None
+    return wrapper
+
+@toPost
+def previousPost(post):
+    ''' Return the post immediately before this one. '''
+    return db.posts.find_one({'timestamp': {'$lt': post.timestamp}},
+                             sort=[('timestamp', -1)])
+
+@toPost
+def nextPost(post):
+    ''' Return the post immediately after this one, if any. '''
+    return db.posts.find_one({'timestamp': {'$gt': post.timestamp}},
+                             sort=[('timestamp', 1)])
+
+@toPost
 def retrieve(id):
     ''' Retrieve post with given id. '''
-    postData = db.posts.find_one({'id': id})
-    return None if postData is None else Post(postData)
+    return db.posts.find_one({'id': id})
 
 def create(post):
     return db.posts.insert(dict(post))
