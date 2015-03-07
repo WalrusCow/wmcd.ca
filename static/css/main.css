@@ -69,6 +69,11 @@ hr {
   font-weight: bold;
 }
 
+.flex-sides {
+  display: flex;
+  justify-content: space-between;
+}
+
 /*
  * Home page specific styling
  */
@@ -78,6 +83,10 @@ hr {
 
 .post-list .post-title {
   display: inline;
+}
+
+.next-post {
+  text-align: right;
 }
 
 /*
@@ -108,10 +117,6 @@ code {
 /*
  * Additional post page styling
  */
-.post-footer {
-  display: flex;
-  justify-content: space-between;
-}
 .next-post {
   text-align: right;
 }

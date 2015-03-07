@@ -12,14 +12,14 @@ ${post['body']}
 
 <hr>
 
-% if prevPost is not None:
-<div class="post-footer">
+<div class="flex-sides post-footer">
 <div class="prev-post">
+% if prevPost is not None:
 <a href="/post/${prevPost['id']}">${prevPost['title']}</a>
 <br/>
 ${prevPost['timestamp']}
-</div>
 % endif
+</div>
 
 % if nextPost is not None:
 <div class="next-post">

@@ -99,8 +99,29 @@ def writeTemplate():
 @template.file('home.mako')
 @template.title("William's Blog")
 def indexTemplate():
-    results = db.posts.find(limit=5, sort=[('timestamp', pymongo.DESCENDING)])
-    return {'posts': list(postForTemplate(posts.Post(p)) for p in results)}
+    POST_LIMIT = 8
+    offset = request.query.offset
+    offset = int(offset) if offset.isnumeric() else 0
+
+    totalPosts = db.posts.count()
+    offset = min(offset, totalPosts - POST_LIMIT)
+
+    nextOffset = offset + POST_LIMIT
+    if nextOffset >= totalPosts:
+        nextOffset = None
+
+    if offset > 0:
+        prevOffset = max(offset - POST_LIMIT, 0)
+    else:
+        prevOffset = None
+    results = db.posts.find(limit=POST_LIMIT,
+                            sort=[('timestamp', pymongo.DESCENDING)],
+                            skip=offset)
+    return {
+        'nextOffset': nextOffset,
+        'prevOffset': prevOffset,
+        'posts': list(postForTemplate(posts.Post(p)) for p in results)
+    }
 
 @app.get('<path:path>')
 def serveStatic(path):

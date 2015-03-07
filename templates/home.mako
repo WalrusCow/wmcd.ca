@@ -8,6 +8,17 @@
 ${makePost(post)}
 % endfor
 
+<hr>
+<div class="flex-sides">
+<div>
+% if nextOffset is not None:
+<a class="older-posts" href="/?offset=${nextOffset}">Older posts</a>
+% endif
+</div>
+
+% if prevOffset is not None:
+<a class="newer-posts" href="/?offset=${prevOffset}">Newer posts</a>
+% endif
 </div>
 </%block>
 
