@@ -54,6 +54,10 @@ hr {
   position: relative;
 }
 
+.nav-container {
+  width: auto;
+}
+
 .nav-menu {
   display: inline;
   margin: 0;

@@ -12,8 +12,10 @@
 
 <div class="wrapper">
 
-<div class="flex-center">
-<div class="content">
+<main class="flex-center">
+
+<div class="main-content">
+<div class="content nav-container">
 <span class="nav-item">William McDonald</span>
 <ul class="nav-menu">
 <li class="nav-item"><a href="/blog/">Blog</a></li>
@@ -21,11 +23,7 @@
 <li class="nav-item"><a href="https://github.com/WalrusCow/">GitHub</a></li>
 </ul>
 </div>
-</div>
 
-<main class="flex-center">
-
-<div class="main-content">
 <%block name="content"/>
 </div>
 </main>
