@@ -1,7 +1,7 @@
 <%inherit file="base.mako"/>
 
 <%block name="content">
-<form id="login" action="/login" method="post">
+<form id="login" action="/blog/login" method="post">
 <input required="true" type="text" name="user" placeholder="Username"/>
 <br>
 <input required="true" type="password" name="password" placeholder="Password"/>

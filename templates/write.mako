@@ -10,7 +10,7 @@
               id="input" cols="80" placeholder="Write something..."> </textarea>
 
     <br/>
-    <form id="postForm" action="/post" method="post">
+    <form id="postForm" action="/blog/post" method="post">
       <input type="hidden" name="author" value="William McDonald"/>
       <input type="submit" value="Post"/>
     </form>
@@ -23,6 +23,6 @@
 </%block>
 
 <%block name="scripts">
-<script src="/js/lib/markdown.min.js"></script>
-<script src="/js/write.js"></script>
+<script src="/blog/js/lib/markdown.min.js"></script>
+<script src="/blog/js/write.js"></script>
 </%block>

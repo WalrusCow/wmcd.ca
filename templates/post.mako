@@ -15,7 +15,7 @@ ${post['body']}
 <div class="flex-sides post-footer">
 <div class="prev-post">
 % if prevPost is not None:
-<a href="/post/${prevPost['id']}">${prevPost['title']}</a>
+<a href="/blog/post/${prevPost['id']}">${prevPost['title']}</a>
 <br/>
 ${prevPost['timestamp']}
 % endif
@@ -23,7 +23,7 @@ ${prevPost['timestamp']}
 
 % if nextPost is not None:
 <div class="next-post">
-<a href="/post/${nextPost['id']}">${nextPost['title']}</a>
+<a href="/blog/post/${nextPost['id']}">${nextPost['title']}</a>
 <br/>
 ${nextPost['timestamp']}
 </div>

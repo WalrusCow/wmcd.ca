@@ -12,19 +12,19 @@ ${makePost(post)}
 <div class="flex-sides">
 <div>
 % if nextOffset is not None:
-<a class="older-posts" href="/?offset=${nextOffset}">Older posts</a>
+<a class="older-posts" href="/blog/?offset=${nextOffset}">Older posts</a>
 % endif
 </div>
 
 % if prevOffset is not None:
-<a class="newer-posts" href="/?offset=${prevOffset}">Newer posts</a>
+<a class="newer-posts" href="/blog/?offset=${prevOffset}">Newer posts</a>
 % endif
 </div>
 </%block>
 
 <%def name="makePost(post)">
 <div class="post-list">
-<h2 class="post-title"><a href="/post/${post['id']}">${post['title']}</a></h2>
+<h2 class="post-title"><a href="/blog/post/${post['id']}">${post['title']}</a></h2>
 <span>(${post['timestamp']})</span>
 </div>
 </%def>

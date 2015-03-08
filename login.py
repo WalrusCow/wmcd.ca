@@ -13,7 +13,7 @@ def requiresLogin(func):
         user = request.get_cookie('user')
         if Session.exists(user, sessionId):
             return func(*args, **kwargs)
-        redirect('/login')
+        redirect('login')
     return wrapper
 
 def loginUser(user, password):

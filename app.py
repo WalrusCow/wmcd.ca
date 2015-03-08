@@ -41,7 +41,7 @@ def newPost():
     if not post.valid:
         return Error(400, 'Required fields missing')
     posts.create(post)
-    redirect('/post/' + post.id)
+    redirect('post/' + post.id)
 
 @app.post('/login')
 def login():
@@ -55,7 +55,7 @@ def login():
     # TODO: Use secure=True for prod
     response.set_cookie('id', session.id, path='/', httponly=True)#, secure=True)
     response.set_cookie('user', user, path='/', httponly=True)#, secure=True)
-    redirect('/write')
+    redirect('write')
 
 @app.get('/login')
 @template.file('login.mako')
@@ -127,9 +127,3 @@ def indexTemplate():
 def serveStatic(path):
     ''' Fallback routing to anything under '/static' '''
     return static_file(path, root=os.path.join(PATH_BASE, 'static'))
-
-if __name__ == '__main__':
-    try:
-        app.run(host='localhost', port=27134)
-    finally:
-        db.close()

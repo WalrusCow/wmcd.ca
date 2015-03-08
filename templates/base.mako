@@ -2,7 +2,7 @@
 <head>
 <title>${title}</title>
 <%block name="styles"/>
-<link href="/css/main.css" rel="stylesheet"/>
+<link href="/blog/css/main.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -16,9 +16,9 @@
 <div class="content">
 <span class="nav-item">William McDonald</span>
 <ul class="nav-menu">
-<li class="nav-item"><a href="/">Blog</a></li>
-<li class="nav-item"><a href="/">Code</a></li>
-<li class="nav-item"><a href="/">GitHub</a></li>
+<li class="nav-item"><a href="/blog/">Blog</a></li>
+<li class="nav-item"><a href="/code/">Code</a></li>
+<li class="nav-item"><a href="https://github.com/WalrusCow/">GitHub</a></li>
 </ul>
 </div>
 </div>
@@ -33,5 +33,5 @@
 </body>
 
 <%block name="scripts"/>
-<script data-main="/js/mainGraph.js" src="/js/require.js"></script>
+<script data-main="/blog/js/mainGraph.js" src="/blog/js/require.js"></script>
 </html>
