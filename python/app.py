@@ -10,7 +10,7 @@ import posts
 import template
 from login import loginUser, requiresLogin
 
-PATH_BASE = os.path.dirname(os.path.abspath(__file__))
+PATH_BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 app = Bottle()
 

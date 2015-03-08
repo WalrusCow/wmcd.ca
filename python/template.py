@@ -3,7 +3,7 @@ import functools
 
 from mako.lookup import TemplateLookup
 
-DIR = os.path.dirname(os.path.abspath(__file__))
+DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 templateDirs = [os.path.join(DIR, 'templates')]
 templateLookup = TemplateLookup(directories=templateDirs)
