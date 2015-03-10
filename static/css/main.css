@@ -79,7 +79,7 @@ hr {
 }
 
 /*
- * Home page specific styling
+ * Blog home page specific styling
  */
 .post-list {
   margin: 10px 0;
@@ -116,11 +116,4 @@ h1 {
 
 code {
   white-space: pre;
-}
-
-/*
- * Additional post page styling
- */
-.next-post {
-  text-align: right;
 }
