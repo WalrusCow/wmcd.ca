@@ -1,6 +1,6 @@
 (function() {
   requirejs.config({
-    baseUrl : '/blog/js',
+    baseUrl : '/js',
     paths : { 'require' : '.' }
   });
 

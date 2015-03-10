@@ -117,3 +117,17 @@ h1 {
 code {
   white-space: pre;
 }
+
+/*
+ * Code pages styling
+ */
+.game canvas {
+  background-color: rgba(64, 64, 64, 0.6);
+  border: 2px solid black;
+  margin-bottom: 10px;
+}
+.game {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}

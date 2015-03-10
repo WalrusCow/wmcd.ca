@@ -18,8 +18,8 @@
 <div class="content nav-container">
 <span class="nav-item">William McDonald</span>
 <ul class="nav-menu">
-<li class="nav-item"><a href="/blog/">Blog</a></li>
-<li class="nav-item"><a href="/code/">Code</a></li>
+<li class="nav-item"><a href="/blog">Blog</a></li>
+<li class="nav-item"><a href="/code">Code</a></li>
 <li class="nav-item"><a href="https://github.com/WalrusCow/">GitHub</a></li>
 </ul>
 </div>

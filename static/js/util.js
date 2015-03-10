@@ -1,66 +1,104 @@
-define([], function() {
-  var util = {};
+define(function() {
 
-  util.random = {};
-  util.random.number = function(min, max) {
-    return Math.floor(min + (Math.random() * (max - min)))
+  util = {};
+
+  util.clearSquare = function(ctx, coords, size) {
+    ctx.clearRect(coords.x, coords.y, size, size);
   };
 
-  util.random.choose = function(num, list) {
-    // Choose at random from the list without replacement
-    var keys = Object.keys(list);
-    var ret = [];
+  util.drawSquare = function(ctx, coords, size, fill) {
+    ctx.fillStyle = fill;
+    ctx.fillRect(coords.x, coords.y, size, size);
+  };
 
-    for (var i = 0; i < num; ++i) {
-      var keysLeft = Object.keys(keys);
-      if (!keysLeft.length) break;
-      var idx = util.random.number(0, keysLeft.length);
-      ret.push(list[keys[keysLeft[idx]]]);
-      delete keys[keysLeft[idx]];
+  util.isPlainObject = function(x) {
+    return typeof x == 'object' && x.constructor == Object;
+  };
+
+  util.each = function(obj, f) {
+    if(obj instanceof Array) {
+      for(var i = 0; i < obj.length; ++i) f(obj[i], i);
+    } else if(this.isPlainObject(obj)) {
+      for(var key in obj) f(obj[key], key);
     }
-    return (ret.length == 1) ? ret[0] : ret;
   };
 
-  util.rateLimit = function(func, rate) {
-    var blocked = false;
-    return function() {
-      if (blocked) {
-        return;
-      }
-      blocked = true;
-      setTimeout(function() {
-        blocked = false;
-      }, rate);
-      func.apply(this, arguments);
-    };
-  };
+  util.deepCopy = function(obj) {
+    /* Copy an object, with new Arrays and Object members */
 
-  util.getClickCoords = function(e, clickElem) {
-    /* Get the coordinates for a click on canvas, or null if invalid */
-    var offset = {
-      x : 0,
-      y : 0
-    };
+    var self = this;
+    function _copyInto(obj, ret) {
 
-    var el = clickElem;
-    do {
-      offset.x += el.offsetLeft - el.scrollLeft;
-      offset.y += el.offsetTop - el.scrollTop;
-      // Do not do body, because chrome adds scroll to body but FF does not
-    } while ((el = el.offsetParent) && (el !== document.body))
+      self.each(obj, function(val, key) {
+        if(val instanceof Array) {
+          // Copy array
+          ret[key] = [];
+          _copyInto(val, ret[key]);
 
-    var x = e.pageX - offset.x;
-    var y = e.pageY - offset.y;
+        } else if(typeof val == 'object' && val.constructor == Object) {
+          // Copy object
+          ret[key] = {};
+          _copyInto(val, ret[key]);
 
-    // Account for the border
-    var canvasStyle = getComputedStyle(clickElem);
-    x -= canvasStyle.getPropertyValue('border-left-width').replace(/px$/, '');
-    y -= canvasStyle.getPropertyValue('border-top-width').replace(/px$/, '');
-    // Invalid click handling
-    if (y < 0 || y > clickElem.height || x < 0 || x > clickElem.width) {
-      return null;
+        } else {
+          // Base case
+          ret[key] = val;
+        }
+
+      });
+
     }
-    return { x : x, y : y };
+
+    var ret = {};
+    _copyInto(obj, ret);
+    return ret;
+  };
+
+  util.extend = function(dest, src) {
+    /*
+     * Return a new object with all properties of dest
+     * and all properties of src. Those of src take precedence.
+     */
+
+    var self = this;
+    function _extend(src, ret) {
+      self.each(src, function(val, key) {
+
+        // Set to empty object if not present
+        if(ret[key] === undefined) ret[key] = {};
+
+        // If value is object, recurse
+        if(self.isPlainObject(val)) {
+          _extend(val, ret[key]);
+        } else if(val instanceof Array) {
+          ret[key] = self.deepCopy(val);
+        } else {
+          ret[key] = val;
+        }
+
+      });
+      return ret;
+    }
+
+    return _extend(src, this.deepCopy(dest));
+
+  };
+
+  util.registerControls = function(obj, controls, sel) {
+    // Create an event handler. Take function and what `this` should be
+    function makeHandler(f, t) {
+      return function(e) { f.apply(t, arguments); e.preventDefault(); };
+    }
+
+    util.each(controls, function(control) {
+      var id = sel + control.id;
+      var el = document.getElementById(id);
+      // Set control elements
+      obj[control.id + 'Control'] = el;
+      // Set event listener
+      el.addEventListener(control.event, makeHandler(control.handler, obj));
+    });
+
   };
 
   return util;
