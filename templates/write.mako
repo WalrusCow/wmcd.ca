@@ -23,6 +23,6 @@
 </%block>
 
 <%block name="scripts">
-<script src="/blog/js/lib/markdown.min.js"></script>
-<script src="/blog/js/write.js"></script>
+<script src="/js/lib/markdown.min.js"></script>
+<script src="/js/write.js"></script>
 </%block>

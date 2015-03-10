@@ -2,7 +2,7 @@ import base64
 import os
 from datetime import datetime, timedelta
 
-import db
+import blog.db as db
 
 SESSION_ID_SIZE = 128
 

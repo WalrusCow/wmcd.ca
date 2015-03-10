@@ -2,7 +2,7 @@ import functools
 import hashlib
 from datetime import datetime
 
-import db
+import blog.db as db
 
 class Post():
     _FIELDS = ('body', 'title', 'author')

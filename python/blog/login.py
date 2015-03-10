@@ -2,8 +2,8 @@ import functools
 import hashlib
 from bottle import redirect, request
 
-import db
-from session import Session
+import blog.db as db
+from blog.session import Session
 
 def requiresLogin(func):
     ''' Wrap a request to reject if the user is not logged in. '''

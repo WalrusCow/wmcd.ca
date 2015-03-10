@@ -2,13 +2,14 @@ import json
 import os
 
 import pymongo
-from bottle import Bottle, request, response, static_file, HTTPError, redirect
+from bottle import Bottle, request, response, HTTPError, redirect
 from markdown2 import markdown
 
-import db
-import posts
 import template
-from login import loginUser, requiresLogin
+
+import blog.db as db
+import blog.posts as posts
+from blog.login import loginUser, requiresLogin
 
 PATH_BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -60,8 +61,7 @@ def login():
 @app.get('/login')
 @template.file('login.mako')
 @template.title('Sign In')
-def loginTemplate():
-    return dict()
+def loginTemplate(): return {}
 
 @app.get('/post/<postId>')
 @template.file('post.mako')
@@ -92,11 +92,10 @@ def postForTemplate(post):
 @template.file('write.mako')
 @template.title('New Post')
 @requiresLogin
-def writeTemplate():
-    return dict()
+def writeTemplate(): return {}
 
 @app.get('/')
-@template.file('home.mako')
+@template.file('blogHome.mako')
 @template.title("William's Blog")
 def indexTemplate():
     POST_LIMIT = 8
@@ -122,8 +121,3 @@ def indexTemplate():
         'prevOffset': prevOffset,
         'posts': list(postForTemplate(posts.Post(p)) for p in results)
     }
-
-@app.get('<path:path>')
-def serveStatic(path):
-    ''' Fallback routing to anything under '/static' '''
-    return static_file(path, root=os.path.join(PATH_BASE, 'static'))

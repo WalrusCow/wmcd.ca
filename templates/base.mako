@@ -2,7 +2,7 @@
 <head>
 <title>${title}</title>
 <%block name="styles"/>
-<link href="/blog/css/main.css" rel="stylesheet"/>
+<link href="/css/main.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -31,5 +31,5 @@
 </body>
 
 <%block name="scripts"/>
-<script data-main="/blog/js/mainGraph.js" src="/blog/js/require.js"></script>
+<script data-main="/js/mainGraph.js" src="/js/require.js"></script>
 </html>

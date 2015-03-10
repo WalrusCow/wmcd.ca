@@ -3,7 +3,7 @@ import os
 import hashlib
 from getpass import getpass
 
-import db
+import blog.db as db
 
 SALT_SIZE = 128
 
