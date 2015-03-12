@@ -30,6 +30,7 @@
 </div>
 </body>
 
+<script src="/js/lib/requirejs/require.js"></script>
+<script src="/js/graphMain.js"></script>
 <%block name="scripts"/>
-<script data-main="/js/mainGraph.js" src="/js/require.js"></script>
 </html>

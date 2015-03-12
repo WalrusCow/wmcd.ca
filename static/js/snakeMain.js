@@ -1,10 +1,11 @@
-(function() {
+require(['/js/config.js'], function() {
   requirejs.config({
-    baseUrl : '/js',
-    paths : { 'require' : '.' }
+    paths : {
+      'snake': 'lib/snake'
+    }
   });
 
   requirejs(['snake/snake'], function(SnakeGame) {
     new SnakeGame();
   });
-})();
+});

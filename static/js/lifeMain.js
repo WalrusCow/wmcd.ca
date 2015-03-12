@@ -1,10 +1,11 @@
-(function() {
+require(['/js/config.js'], function() {
   requirejs.config({
-    baseUrl: '/js',
-    paths: { 'require': '.', }
+    paths : {
+      'life': 'lib/life'
+    }
   });
 
   requirejs(['life/life'], function(Life) {
     new Life();
   });
-})();
+});

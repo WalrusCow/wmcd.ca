@@ -27,5 +27,5 @@ modern browser to see it in action.</canvas>
 </%block>
 
 <%block name="scripts">
-<script data-main="/js/lifeMain.js", src="/js/require.js"></script>
+<script src="/js/lifeMain.js"></script>
 </%block>

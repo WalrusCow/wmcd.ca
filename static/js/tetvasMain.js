@@ -1,10 +1,11 @@
-(function() {
+require(['/js/config.js'], function() {
   requirejs.config({
-    baseUrl: '/js/tetvas',
-    paths: { 'require': '..' }
+    paths : {
+      'tetvas': 'lib/tetvas/tetvas'
+    }
   });
 
-  requirejs(['tetvas'], function(Tetvas) {
+  requirejs(['tetvas/tetvas'], function(Tetvas) {
     new Tetvas();
   });
-})();
+});
