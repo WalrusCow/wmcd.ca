@@ -8,8 +8,8 @@
 article</a>, which does a good job at describing what it is.</p>
 <p>Alternatively, you can just start clicking on the canvas below. Press
 play once you have some squares and see what happens!</p>
-<p>And a <a href="https://github.com/WalrusCow/canvas">link to the source</a>
-for the curious. You can find it under <code>scripts/life.js</code>.</p>
+<p>And a <a href="https://github.com/WalrusCow/game-of-life">link to the source</a>
+for the curious.</p>
 
 <div class="game">
 <canvas id="Life-canvas" height="300" width="200">Please use a

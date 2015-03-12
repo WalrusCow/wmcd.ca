@@ -8,8 +8,8 @@ know how to play, it's very simple.  Using the arrow keys (or WSAD) to control
 the "snake" (black thing), collect the food (red things) to grow longer.</p>
 <p>You lose if the snake hits itself or any wall!</p>
 
-<p>You can find <a href="https://github.com/WalrusCow/canvas">the source</a>
-for the curious. You can find it under <code>scripts/snake.js</code>.</p>
+<p>You can find <a href="https://github.com/WalrusCow/snake">the source</a>
+on GitHub.</p>
 
 <div class="game">
 <canvas id="Snake-canvas" tabIndex="1" height="200" width="200">Please use a
