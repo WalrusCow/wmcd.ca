@@ -16,7 +16,7 @@
 
 <div class="main-content">
 <div class="content nav-container">
-<span class="nav-item">William McDonald</span>
+<span class="nav-item"><a href="/">William McDonald</a></span>
 <ul class="nav-menu">
 <li class="nav-item"><a href="/blog">Blog</a></li>
 <li class="nav-item"><a href="/code">Code</a></li>

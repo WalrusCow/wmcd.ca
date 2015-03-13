@@ -18,5 +18,7 @@ on GitHub.
 <p>All the source code is on GitHub (although it's not even minified so you
 could read it just as easily from the developer tools).</p>
 <p>Enjoy!</p>
+
+<%include file="code-footer.mako"/>
 </div>
 </%block>

@@ -19,6 +19,7 @@ modern browser to see it in action.</canvas>
 <button class="game-control" id="Snake-start">Play Snake</button>
 </div>
 
+<%include file="code-footer.mako"/>
 </div>
 </%block>
 

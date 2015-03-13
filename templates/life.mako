@@ -23,6 +23,7 @@ modern browser to see it in action.</canvas>
 <input type="range" id="Life-speed" value="4" min="1" max="10"/>
 </div>
 
+<%include file="code-footer.mako"/>
 </div>
 </%block>
 
