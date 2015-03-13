@@ -15,19 +15,6 @@ PATH_BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 app = Bottle()
 
-class Error(HTTPError):
-    def __init__(self, code, message):
-        super().__init__(status=code, body={'message': message})
-
-@app.error(400)
-def error400(error):
-    response.content_type = 'application/json'
-    return json.dumps(error.body)
-
-@app.error(401)
-def error401(error):
-    return error.body
-
 @app.post('/post')
 @requiresLogin
 def newPost():
@@ -40,7 +27,7 @@ def newPost():
     }
     post = posts.Post(postData)
     if not post.valid:
-        return Error(400, 'Required fields missing')
+        raise HTTPError(status=400, body='Required fields missing')
     posts.create(post)
     redirect('post/' + post.id)
 
@@ -51,7 +38,7 @@ def login():
 
     session = loginUser(user, password)
     if type(session) == str:
-        return Error(401, session)
+        raise HTTPError(status=401, body=session)
 
     # TODO: Use secure=True for prod
     response.set_cookie('id', session.id, path='/', httponly=True)#, secure=True)
@@ -68,7 +55,7 @@ def loginTemplate(): return {}
 def postTemplate(postId):
     post = posts.retrieve(postId)
     if post is None:
-        return Error(404, 'No matching post found!')
+        raise HTTPError(status=404, body='No matching post found!')
     prevPost = posts.previousPost(post)
     nextPost = posts.nextPost(post)
     return {
