@@ -90,7 +90,7 @@ def indexTemplate():
     offset = int(offset) if offset.isnumeric() else 0
 
     totalPosts = db.posts.count()
-    offset = min(offset, totalPosts - POST_LIMIT)
+    offset = min(offset, max(0, totalPosts - POST_LIMIT))
 
     nextOffset = offset + POST_LIMIT
     if nextOffset >= totalPosts:
