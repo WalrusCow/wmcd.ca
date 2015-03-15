@@ -13,12 +13,19 @@ function throttle(func, delay) {
   }
 }
 
-function preview(inElem, outElem) {
-  function md() {
-    outElem.innerHTML = markdown.toHTML(inElem.value);
-  }
-  inElem.addEventListener('keydown', throttle(md, 500));
+function updatePreview() {
+  var $ = document.getElementById.bind(document);
+  var title = $('titleInput').value;
+  var body = $('bodyInput').value;
+  $('bodyOutput').innerHTML = markdown.toHTML(body);
+  $('titleOutput').innerHTML = title;
 }
 
-preview(document.getElementById('input'), document.getElementById('output'));
+function updatePreviewOn(elem) {
+  // Update on changes to this element
+  elem.addEventListener('keydown', throttle(updatePreview, 500));
+}
+
+updatePreviewOn(document.getElementById('bodyInput'))
+updatePreviewOn(document.getElementById('titleInput'))
 })();
