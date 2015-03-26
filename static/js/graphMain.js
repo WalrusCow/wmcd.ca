@@ -12,7 +12,7 @@ require(['/js/config.js'], function() {
 
   requirejs(['graph/generate'], function(generateGraph) {
     var bgColour = window.getComputedStyle(document.body).backgroundColor;
-    generateGraph({
+    var graph = generateGraph({
       canvas: 'graphCanvas',
       graph: {
         node: {
@@ -20,6 +20,14 @@ require(['/js/config.js'], function() {
           colour: '#bc74ff'
         }
       }
+    });
+
+    var ctx = canvas.getContext('2d');
+    window.addEventListener('resize', function() {
+      ctx.clearRect(0,0,canvas.height, canvas.width);
+      canvas.height = wrapper.clientHeight;
+      canvas.width = wrapper.clientWidth;
+      graph.draw(ctx);
     });
   });
 });
