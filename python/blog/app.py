@@ -40,9 +40,9 @@ def login():
     if type(session) == str:
         raise HTTPError(status=401, body=session)
 
-    # TODO: Use secure=True for prod
-    response.set_cookie('id', session.id, path='/', httponly=True)#, secure=True)
-    response.set_cookie('user', user, path='/', httponly=True)#, secure=True)
+    prod = not bool(os.environ.get('WMCD_DEV'))
+    response.set_cookie('id', session.id, path='/', httponly=True, secure=prod)
+    response.set_cookie('user', user, path='/', httponly=True, secure=prod)
     redirect('write')
 
 @app.get('/login')
