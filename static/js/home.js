@@ -16,7 +16,9 @@
         before = false;
         continue;
       }
-      $(tabDisplays[i]).addClass(before ? 'tab-left' : 'tab-right');
+      $(tabDisplays[i])
+        .addClass(before ? 'tab-left' : 'tab-right')
+        .removeClass(before ? 'tab-right' : 'tab-left');
     }
   }
 
