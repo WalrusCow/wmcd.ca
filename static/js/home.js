@@ -1,10 +1,23 @@
 (function() {
   var tabDisplays = [];
-  var currentTab = document.getElementsByClassName('defaultTab')[0];
+  var currentTab = document.getElementsByClassName('tab-center')[0];
 
   function switchTabs(from, to) {
-    from.style.display = 'none';
-    to.style.display = 'block';
+    var $to = $(to);
+    var $from = $(from);
+    $to.removeClass('tab-right')
+       .removeClass('tab-left')
+       .addClass('tab-center');
+
+    $from.removeClass('tab-center');
+    var before = true;
+    for (var i = 0; i < tabDisplays.length; ++i) {
+      if (tabDisplays[i] === to) {
+        before = false;
+        continue;
+      }
+      $(tabDisplays[i]).addClass(before ? 'tab-left' : 'tab-right');
+    }
   }
 
   function attachControl(control, display) {
@@ -24,8 +37,8 @@
   }
 
   function init() {
-    var tabContainer = document.getElementById('tabContainer');
-    var controlContainer = document.getElementById('controlContainer');
+    var tabContainer = document.getElementById('tab-container');
+    var controlContainer = document.getElementById('control-container');
 
     tabDisplays = getChildren(tabContainer);
     var tabControls = getChildren(controlContainer);

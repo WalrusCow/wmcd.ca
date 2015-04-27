@@ -1,28 +1,35 @@
 .tab {
-  display: none;
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
-.defaultTab {
-  display: block;
+.tab-center {
+}
+.tab-right {
+  transform: translate(150%, 0px);
+  opacity: 0;
+}
+.tab-left {
+  opacity: 0;
+  transform: translate(-150%, 0px);
 }
 
-.tabControlList {
+.tab-control-list {
   padding: 0;
   display: flex;
 }
-.tabControl {
-  padding: 10px;
+.tab-control {
   background-color: white;
+  padding: 10px;
   color: black;
   transition: background-color 0.3s ease-out,
               color 0.3s ease-out;
 }
-.tabControl:hover {
+.tab-control:hover {
   background-color: black;
   color: white;
 }
-.tabControl::after {
+.tab-control::after {
   content: '';
-  width: 100%;
+  width: 200%;
   left: 0%;
   display: block;
   border-bottom: 2px solid blue;
@@ -31,7 +38,7 @@
               width 1s ease-in,
               left 1s ease-in;
 }
-.tabControl:hover::after {
+.tab-control:hover::after {
   left: 100%;
   width: 0%;
   border-bottom: 2px solid red;
