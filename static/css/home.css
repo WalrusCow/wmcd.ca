@@ -1,13 +1,18 @@
 .tab {
-  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+  transition: all 0.4s ease-out;
+  float: left;
 }
 .tab-right {
-  opacity: 0;
-  transform: translate(150%, 0px);
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  transform: translate(700px, 0px);
 }
 .tab-left {
-  opacity: 0;
-  transform: translate(-150%, 0px);
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  transform: translate(-700px, 0px);
 }
 
 .tab-control-list {
@@ -26,7 +31,7 @@
 
 .tab-control-highlight {
   height: 2px;
-  background-color: #E91E63;
+  background-color: #673ab7;
   transition: all 0.4s ease;
   width: 70px;
   left: 0%;
@@ -34,9 +39,8 @@
   position: relative;
 }
 
-.tab-control:hover {
-  background-color: black;
-  color: white;
+.game canvas {
+  background-color: grey;
 }
 
 main {
