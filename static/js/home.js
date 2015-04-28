@@ -59,6 +59,10 @@
     for (var i = 0; i < tabControls.length; ++i) {
       attachControl(tabControls[i], tabDisplays[i]);
     }
+    var maxHeight = Math.max.apply(Math, tabDisplays.map(function(e) {
+      return $(e).height();
+    }));
+    $('#tab-container').height(maxHeight);
   }
 
   init();
