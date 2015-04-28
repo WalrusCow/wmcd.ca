@@ -12,38 +12,40 @@
 
 .tab-control-list {
   padding: 0;
-  display: flex;
+  font-size: 0px; /* To remove space input by line break */
 }
 .tab-control {
-  background-color: white;
   padding: 10px;
+  font-size: 16px;
+  display: inline-block;
+  background-color: white;
   color: black;
   transition: background-color 0.3s ease-out,
               color 0.3s ease-out;
 }
+
+.tab-control-highlight {
+  height: 2px;
+  background-color: #E91E63;
+  transition: all 0.4s ease;
+  width: 70px;
+  left: 0%;
+  top: -10px; /* .tab-control padding */
+  position: relative;
+}
+
 .tab-control:hover {
   background-color: black;
   color: white;
-}
-.tab-control::after {
-  content: '';
-  width: 100%;
-  left: 0%;
-  display: block;
-  border-bottom: 2px solid blue;
-  position: relative;
-  transition: border 1s ease-in,
-              width 1s ease-in,
-              left 1s ease-in;
-}
-.tab-control:hover::after {
-  left: 100%;
-  width: 0%;
-  border-bottom: 2px solid red;
 }
 
 main {
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden; /* For right/left tabs */
+
+  /* Pad so the tabs fly in nicely */
+  padding-left: 100px;
+  padding-right: 100px;
 }
