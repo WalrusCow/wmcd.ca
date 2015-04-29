@@ -63,6 +63,7 @@
       return $(e).height();
     }));
     $('#tab-container').height(maxHeight);
+    $highlight.css('width', $(tabControls[0]).outerWidth());
   }
 
   init();
