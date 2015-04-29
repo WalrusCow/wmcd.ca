@@ -110,11 +110,11 @@ h2 {
 }
 .about ::selection {
   background-color: #fff;
-  color:#00bcd4;
+  color: #00bcd4;
 }
 .about ::-moz-selection {
   background-color: #fff;
-  color:#00bcd4;
+  color: #00bcd4;
 }
 .games {
   background-color: #eee;
