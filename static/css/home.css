@@ -53,12 +53,25 @@ h2 {
   padding: 0;
   font-size: 0px; /* To remove space input by line break */
 }
+.tab-control-list::after {
+  content: "";
+  position: relative;
+  height: 1px;
+  background-color: rgba(0, 0, 0, .26);
+  width: 100%;
+  display: inline-block;
+}
 .tab-control {
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
   font-size: 20px;
   display: inline-block;
-  transition: background-color 0.3s ease-out,
-              color 0.3s ease-out;
+  transition: color 0.3s ease-out,
+              background-color 0.3s ease-out;
+  transition: box-shadow 0.4s ease;
+}
+.tab-control:hover {
+  /* Orange border at bottom */
+  box-shadow: 0px 2px 0px #ff9800;
 }
 
 .tab-control-highlight {
@@ -67,7 +80,6 @@ h2 {
   transition: all 0.4s ease;
   width: 70px;
   left: 0%;
-  top: -10px; /* .tab-control padding */
   position: relative;
 }
 

@@ -29,8 +29,8 @@
       }
     }
     var width = $(tabControls[idx]).outerWidth();
-    $highlight.css('left', left);
-    $highlight.css('width', width);
+    $highlight.css('left', left - 1);
+    $highlight.css('width', width + 2);
   }
 
   function attachControl(control, display) {
