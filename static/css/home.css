@@ -39,10 +39,10 @@ a:link {
 a:visited {
   color: #e65100;
 }
+/* TODO: Use ::after to create expanding underline */
 a:visited:hover, a:link:hover {
   text-decoration: underline;
 }
-/* TODO: Use ::after to create expanding underline */
 a:visited:active, a:link:active {
   color: #e65100;
   outline: none;
