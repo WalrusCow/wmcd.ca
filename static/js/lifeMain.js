@@ -6,6 +6,8 @@ require(['/js/config.js'], function() {
   });
 
   requirejs(['life/life'], function(Life) {
-    new Life();
+    new Life({
+      cellFill: '#00bcd4'
+    });
   });
 });
