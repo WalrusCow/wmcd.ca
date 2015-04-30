@@ -7,6 +7,19 @@ body {
   color: rgba(0, 0, 0, .87);
 }
 
+section {
+  max-width: 912px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden; /* For right/left tabs */
+
+  /* Pad left/right so the tabs fly in nicely */
+  padding-left: 64px;
+  padding-right: 64px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
 ::selection {
   background-color: #ff9800;
   color: white;
@@ -19,10 +32,24 @@ body {
 a {
   cursor: pointer;
 }
+a:link {
+  color: #ff9800;
+  text-decoration: none;
+}
+a:visited {
+  color: #e65100;
+}
+a:visited:hover, a:link:hover {
+  text-decoration: underline;
+}
+/* TODO: Use ::after to create expanding underline */
+a:visited:active, a:link:active {
+  color: #e65100;
+  outline: none;
+}
 
 h1 {
   font-size: 80px;
-  font-weight: normal;
   margin: 0;
 }
 
@@ -32,6 +59,59 @@ h2 {
   margin: 0;
 }
 
+/******************/
+/* Header section */
+/******************/
+
+.page-header-wrapper {
+  background-color: #ff9800;
+}
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  min-height: 450px;
+  padding-bottom: 10px;
+}
+.page-header header {
+  flex-grow: 1;
+}
+.page-header ::selection {
+  background-color: #fff;
+  color: #ff9800;
+}
+.page-header ::-moz-selection {
+  background-color: #fff;
+  color: #ff9800;
+}
+
+/*****************/
+/* About section */
+/*****************/
+
+.about-wrapper {
+  background-color:#00bcd4;
+}
+.about ::selection {
+  background-color: #fff;
+  color: #00bcd4;
+}
+.about ::-moz-selection {
+  background-color: #fff;
+  color: #00bcd4;
+}
+
+/*****************/
+/* Games section */
+/*****************/
+
+.games-wrapper {
+  background-color: #eee;
+}
+.game canvas {
+  background-color: grey;
+}
+
+/* Tabbed view */
 .tab-container {
   position: relative;
   /* Height set in js */
@@ -81,54 +161,4 @@ h2 {
   width: 70px;
   left: 0%;
   position: relative;
-}
-
-.game canvas {
-  background-color: grey;
-}
-
-.header-bar {
-  display: flex;
-  align-items: flex-end;
-  min-height: 300px;
-  padding-bottom: 10px;
-  background-color: #ff9800;
-}
-.header-bar ::selection {
-  background-color: #fff;
-  color: #ff9800;
-}
-.header-bar ::-moz-selection {
-  background-color: #fff;
-  color: #ff9800;
-}
-.header-bar header {
-  flex-grow: 1;
-}
-.about {
-  background-color:#00bcd4;
-}
-.about ::selection {
-  background-color: #fff;
-  color: #00bcd4;
-}
-.about ::-moz-selection {
-  background-color: #fff;
-  color: #00bcd4;
-}
-.games {
-  background-color: #eee;
-}
-
-.content-wrapper {
-  max-width: 912px;
-  margin-left: auto;
-  margin-right: auto;
-  overflow: hidden; /* For right/left tabs */
-
-  /* Pad so the tabs fly in nicely */
-  padding-left: 64px;
-  padding-right: 64px;
-  padding-top: 24px;
-  padding-bottom: 24px;
 }

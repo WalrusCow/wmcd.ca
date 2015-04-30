@@ -1,104 +1,115 @@
+<!DOCTYPE html>
 <html>
+<!-- Hey, nice to see you here.  I'm just learning about all this web stuff, so
+     feel free to comment on my code, or just message me to chat:
+     willgmcd@gmail.com -->
 <head>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <meta content="utf-8" http-equiv="encoding">
-
   <title>William.</title>
   <link href="/css/home.css" rel="stylesheet"/>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans'
+        rel='stylesheet' type='text/css'>
 </head>
+
 <body>
-  <main>
-    <section class="header-bar">
-      <header class="content-wrapper"><h1>William.</h1></header>
-    </section>
-    <section class="about">
-      <div class="content-wrapper">
-        <header><h2>Yes. That is my name. This is my website.</h2></header>
-        <p>I decided to redesign it (again) in an attempt to make something
-        that wasn't quite the eyesore the old one was.</p>
+<main>
+<div class="page-header-wrapper">
+<section class="page-header">
+<header><h1>William.</h1></header>
+</section>
+</div>
+
+<div class="about-wrapper">
+<section class="about">
+  <h2>Yes. That is my name. This is my website.</h2>
+  <p>I decided to redesign it (again) in an attempt to make something
+  that wasn't quite the eyesore the old one was. Well, you be the
+  judge.</p>
+</section>
+</div>
+
+<div class="games-wrapper">
+<section class="games">
+  <header>Play</header>
+  <p>Here you can enjoy some games made by me.</p>
+  <nav id="control-container" class="tab-control-list">
+    <a class="tab-control">Snake</a>
+    <a class="tab-control">Tetvas</a>
+    <a class="tab-control">Life</a>
+    <div class="tab-control-highlight"></div>
+  </nav>
+
+  <div id="tab-container" class="tab-container">
+    <div class="tab tab-center">
+
+      <h2>Snake</h2>
+      <p>Most people have played snake before in some form or other.  If
+      you don't know how to play, it's very simple.  Using the arrow keys
+      (or WSAD) to control the "snake" (black thing), collect the food (red
+      things) to grow longer.</p>
+      <p>You lose if the snake hits itself or any wall!</p>
+      <p>You can find <a href="https://github.com/WalrusCow/snake">the
+        source</a> on GitHub.</p>
+      <div class="game">
+        <canvas id="Snake-canvas" tabIndex="1" height="200" width="200">
+          Please use a modern browser to see it in action.</canvas>
+        <br/>
+        <button class="game-control" id="Snake-start">Play Snake</button>
       </div>
-    </section>
-    <section class="games">
-      <div class="content-wrapper">
-      <header>Play</header>
-      <p>Here you can enjoy some games made by me.</p>
-      <nav id="control-container" class="tab-control-list">
-        <a class="tab-control">Snake</a>
-        <a class="tab-control">Tetvas</a>
-        <a class="tab-control">Life</a>
-        <div class="tab-control-highlight"></div>
-      </nav>
-
-      <div id="tab-container" class="tab-container">
-        <div class="tab tab-center">
-
-          <h2>Snake</h2>
-          <p>Most people have played snake before in some form or other.  If
-          you don't know how to play, it's very simple.  Using the arrow keys
-          (or WSAD) to control the "snake" (black thing), collect the food (red
-          things) to grow longer.</p>
-          <p>You lose if the snake hits itself or any wall!</p>
-          <p>You can find <a href="https://github.com/WalrusCow/snake">the
-            source</a> on GitHub.</p>
-          <div class="game">
-            <canvas id="Snake-canvas" tabIndex="1" height="200" width="200">
-              Please use a modern browser to see it in action.</canvas>
-            <br/>
-            <button class="game-control" id="Snake-start">Play Snake</button>
-          </div>
-        </div>
-
-        <div class="tab tab-right">
-          <h2>Tetvas</h2>
-          <p>It's just a Tetris clone. I created it with my favourite
-          keybindings - sorry if they don't match your expectations!</p>
-          <p>Use ↑ and Z to rotate, shift to hold and ctrl to drop. Press P to
-          pause the game.</p>
-
-          <p>Check out the source
-            <a href="https://github.com/WalrusCow/tetvas">on GitHub</a>.</p>
-
-          <div class="game">
-            <canvas id="tetvas" tabIndex="1" height="354" width="330">Please use a
-            modern browser to see it in action.</canvas>
-            <br/>
-            <button class="game-control" id="tetvas-start">Play</button>
-          </div>
-        </div>
-
-        <div class="tab tab-right">
-          <h2>Conway's Game of Life</h2>
-          <p>If you haven't heard of Conway's Game of Life before, you should read
-            <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">the Wikipedia
-            article</a>, which does a good job at describing what it is.
-          </p>
-          <p>Alternatively, you can just start clicking on the canvas below.
-            Press play once you have some squares and see what happens!
-          </p>
-          <p>And a <a href="https://github.com/WalrusCow/game-of-life">link to the source</a>
-          for the curious.
-          </p>
-
-          <div class="game">
-            <canvas id="Life-canvas" height="300" width="200">Please use a
-            modern browser to see it in action.</canvas>
-
-            <br/>
-            <button class="game-control" id="Life-start">Play</button>
-            <button class="game-control" id="Life-stop">Pause</button>
-            <button class="game-control" id="Life-clear">Reset</button>
-            <br/>
-            <input type="range" id="Life-speed" value="4" min="1" max="10"/>
-          </div>
-        </div>
-      </div>
-      </section>
-
     </div>
-  </main>
 
-  <script src="/js/jquery-2.1.3.min.js"></script>
-  <script src="/js/home.js"></script>
+    <div class="tab tab-right">
+      <h2>Tetvas</h2>
+      <p>It's just a Tetris clone. I created it with my favourite
+      keybindings - sorry if they don't match your expectations!</p>
+      <p>Use ↑ and Z to rotate, shift to hold and ctrl to drop. Press P to
+      pause the game.</p>
+
+      <p>Check out the source
+        <a href="https://github.com/WalrusCow/tetvas">on GitHub</a>.</p>
+
+      <div class="game">
+        <canvas id="tetvas" tabIndex="1" height="354" width="330">Please use a
+        modern browser to see it in action.</canvas>
+        <br/>
+        <button class="game-control" id="tetvas-start">Play</button>
+      </div>
+    </div>
+
+    <div class="tab tab-right">
+      <h2>Conway's Game of Life</h2>
+      <p>If you haven't heard of Conway's Game of Life before, you should read
+        <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">the Wikipedia
+        article</a>, which does a good job at describing what it is.
+      </p>
+      <p>Alternatively, you can just start clicking on the canvas below.
+        Press play once you have some squares and see what happens!
+      </p>
+      <p>And a <a href="https://github.com/WalrusCow/game-of-life">link to the source</a>
+      for the curious.
+      </p>
+
+      <div class="game">
+        <canvas id="Life-canvas" height="300" width="200">Please use a
+        modern browser to see it in action.</canvas>
+
+        <br/>
+        <button class="game-control" id="Life-start">Play</button>
+        <button class="game-control" id="Life-stop">Pause</button>
+        <button class="game-control" id="Life-clear">Reset</button>
+        <br/>
+        <input type="range" id="Life-speed" value="4" min="1" max="10"/>
+      </div>
+    </div>
+  </div> <!-- Tab container -->
+
+</section>
+</div>
+
+</main>
+
+<script src="/js/jquery-2.1.3.min.js"></script>
+<script src="/js/home.js"></script>
 </body>
 </html>
