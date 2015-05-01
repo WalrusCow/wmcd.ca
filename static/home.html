@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!-- Hey, nice to see you here.  I'm just learning about all this web stuff, so
-     feel free to comment on my code, or just message me to chat:
-     willgmcd@gmail.com -->
+<!-- Howdy. Enjoy reading... is it exciting?  ¯\_(ツ)_/¯ -->
 <head>
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <meta content="utf-8" http-equiv="encoding">
@@ -15,32 +13,92 @@
 <body>
 <main>
 <div class="page-header-wrapper">
-<section class="page-header">
+<section class="page-header inner">
   <header><h1>William.</h1></header>
 </section>
 </div>
 
-<div class="about-wrapper">
-<section class="about">
+<div class="page-subheader-wrapper">
+<section class="page-subheader inner">
   <h2>Yes. That is my name. This is my website.</h2>
-  <p>I decided to redesign it in an attempt to make something that wasn't quite
-  the eyesore the old one was, believe it or not.</p>
+  <p>This site serves both as a showcase of my work, and an introduction
+  to who I am as a person. I hope it's half as great to read as it was to
+  write.</p>
 </section>
 </div>
 
+<section class="about">
+<div class="about-wrapper">
+  <div class="inner"><header><h2>Human.</h2></header></div>
+</div>
+<div class="inner">
+  <p>Shockingly enough, I exist beyond the Internet, and like things other
+  than software.</p>
+  <p>Some of those "things" include math, cooking, eating (!), hiking
+  (not walking - <em>hiking</em>), travelling, reading, and even biking.</p>
+  <p>I am inquisitive by nature, and love diving down a rabbit hole to learn
+  about new an exciting topics.
+  <p>I also have the excellent fortune to be dating
+  <a href="www.ostrowski.ca">a wonderful woman</a> (who also has a very nice
+  website).</p>
+</div>
+</section>
+
+<section class="developer">
+<div class="about-wrapper">
+  <div class="inner"><header><h2>Developer.</h2></header></div>
+</div>
+<div class="inner">
+  <p>Is that different than the last section?</p>
+  <p>I'm currently enrolled in Computer Science at the University of Waterloo.
+  Yep, it's in Canada. Pretty great place, eh? While at school, I've had the
+  good fortune to do several internships, most recently at
+  <a href="https://www.vessel.com">Vessel</a>. There, I was focused on creating
+  their first Android application.</p>
+  <p>I also interned at Facebook (link probably not necessary), where I did
+  infrastructure work in C++, <a href="https://www.bazaarvoice.com">Bazaarvoice</a>,
+  where I did a bunch of work in node.js and
+  <a href="http://www.windriver.com/">Wind River</a>, where I worked on some
+  internal systems in Python.</p>
+  <p>I love learning new things, and I'm easily excited by all things tech.
+  Have a cool new technology you're excited about?
+  <a href="mailto:willgmcd@gmail.com">I'd love to hear about it.</a></p>
+</div>
+</section>
+
 <div class="games-wrapper">
-<section class="games">
-  <header>Play</header>
-  <p>Here you can enjoy some games made by me.</p>
+<section class="games inner">
+  <header><h2>Play.</h2></header>
+  <p>Once upon a time, I wrote three basic games using the HTML5 canvas in
+  order to teach myself JavaScript. You can play them here - I hope you like
+  them. You can also find the source to each on my GitHub page.</p>
   <nav id="control-container" class="tab-control-list">
-    <a class="tab-control">Snake</a>
     <a class="tab-control">Tetvas</a>
+    <a class="tab-control">Snake</a>
     <a class="tab-control">Life</a>
     <div class="tab-control-highlight"></div>
   </nav>
 
   <div id="tab-container" class="tab-container">
     <div class="tab tab-center">
+      <h2>Tetvas</h2>
+      <p>It's just a Tetris clone. I created it with my favourite
+      keybindings - sorry if they don't match your expectations!</p>
+      <p>Use ↑ and Z to rotate, shift to hold and ctrl to drop. Press P to
+      pause the game.</p>
+
+      <p>Check out the source
+        <a href="https://github.com/WalrusCow/tetvas">on GitHub</a>.</p>
+
+      <div class="game">
+        <canvas id="tetvas" tabIndex="1" height="354" width="330">Please use a
+        modern browser to see it in action.</canvas>
+        <br/>
+        <button class="game-control" id="tetvas-start">Play</button>
+      </div>
+    </div>
+
+    <div class="tab tab-right">
 
       <h2>Snake</h2>
       <p>Most people have played snake before in some form or other.  If
@@ -58,23 +116,6 @@
       </div>
     </div>
 
-    <div class="tab tab-right">
-      <h2>Tetvas</h2>
-      <p>It's just a Tetris clone. I created it with my favourite
-      keybindings - sorry if they don't match your expectations!</p>
-      <p>Use ↑ and Z to rotate, shift to hold and ctrl to drop. Press P to
-      pause the game.</p>
-
-      <p>Check out the source
-        <a href="https://github.com/WalrusCow/tetvas">on GitHub</a>.</p>
-
-      <div class="game">
-        <canvas id="tetvas" tabIndex="1" height="354" width="330">Please use a
-        modern browser to see it in action.</canvas>
-        <br/>
-        <button class="game-control" id="tetvas-start">Play</button>
-      </div>
-    </div>
 
     <div class="tab tab-right">
       <h2>Conway's Game of Life</h2>
@@ -103,6 +144,11 @@
     </div>
   </div> <!-- Tab container -->
 
+</section>
+</div>
+
+<div class="contact-wrapper">
+<section class="contact">
 </section>
 </div>
 

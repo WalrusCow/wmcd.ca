@@ -5,6 +5,7 @@ require(['/js/config.js'], function() {
   canvas.width = wrapper.clientWidth;
 
   requirejs.config({
+  urlArgs: 'v=2',
     paths : {
       'graph': 'lib/graph'
     }
