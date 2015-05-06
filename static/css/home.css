@@ -8,7 +8,6 @@ body {
   background-color: #eee;
 }
 
-
 .inner {
   max-width: 912px;
   margin-left: auto;
@@ -42,7 +41,7 @@ a {
   cursor: pointer;
 }
 a:link {
-  color: #ff9800;
+  color: #ffffff;
   text-decoration: none;
 }
 a:visited {
@@ -105,15 +104,15 @@ h2 {
 /*****************/
 
 .about-wrapper {
-  background-color: #00bcd4;
+  background-color: #ff9800;
 }
 .about ::selection {
   background-color: #fff;
-  color: #00bcd4;
+  color: #ff9800;
 }
 .about ::-moz-selection {
   background-color: #fff;
-  color: #00bcd4;
+  color: #ff9800;
 }
 
 /*****************/
