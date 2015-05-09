@@ -41,7 +41,7 @@ a {
   cursor: pointer;
 }
 a:link {
-  color: #ffffff;
+  color: #ff9800;
   text-decoration: none;
 }
 a:visited {
@@ -104,15 +104,6 @@ h2 {
 /*****************/
 
 .about-wrapper {
-  background-color: #ff9800;
-}
-.about ::selection {
-  background-color: #fff;
-  color: #ff9800;
-}
-.about ::-moz-selection {
-  background-color: #fff;
-  color: #ff9800;
 }
 
 /*****************/
