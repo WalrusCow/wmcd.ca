@@ -1,24 +1,25 @@
 require(['/js/config.js'], function() {
   var canvas = document.getElementById('graphCanvas');
-  var wrapper = document.getElementById('canvasWrapper');
+  var wrapper = document.getElementsByClassName('page-header-wrapper')[0];
   canvas.height = wrapper.clientHeight;
   canvas.width = wrapper.clientWidth;
 
   requirejs.config({
-  urlArgs: 'v=2',
+  urlArgs: 'v=3'+new Date(),
     paths : {
       'graph': 'lib/graph'
     }
   });
 
   requirejs(['graph/generate'], function(generateGraph) {
-    var bgColour = window.getComputedStyle(document.body).backgroundColor;
     var graph = generateGraph({
       canvas: 'graphCanvas',
       graph: {
         node: {
-          fillColour: bgColour,
-          colour: '#bc74ff'
+          colour: '#eee'
+        },
+        edge: {
+          colour: '#eee'
         }
       }
     });

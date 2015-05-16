@@ -71,8 +71,13 @@ h2 {
 /* Header section */
 /******************/
 
+#graphCanvas {
+  position: absolute;
+}
+
 .page-header-wrapper {
   background-color: #ff9800;
+  position: relative;
 }
 .page-header {
   display: flex;
