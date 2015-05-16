@@ -25,6 +25,7 @@ require(['/js/config.js'], function() {
     });
 
     var ctx = canvas.getContext('2d');
+    ctx.lineWidth=2;
     window.addEventListener('resize', function() {
       ctx.clearRect(0,0,canvas.height, canvas.width);
       canvas.height = wrapper.clientHeight;

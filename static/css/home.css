@@ -67,12 +67,20 @@ h2 {
   margin: 0;
 }
 
+h3 {
+  font-size: 32px;
+  font-weight: normal;
+  margin: 0;
+}
+
 /******************/
 /* Header section */
 /******************/
 
 #graphCanvas {
   position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .page-header-wrapper {
