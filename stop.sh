@@ -1,3 +1,3 @@
 sudo nginx -s stop
-mongod --shutdown
+#mongod --shutdown
 killall gunicorn
