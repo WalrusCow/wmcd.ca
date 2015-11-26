@@ -1,5 +1,5 @@
 requirejs.config({
-  urlArgs: 'v=2',
+  urlArgs: '',
   baseUrl : '/js',
   paths : {
     'require' : 'lib/requirejs'

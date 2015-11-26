@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "dependencies": {
     "requirejs": "2.1.16",
-    "markdown": "https://github.com/evilstreak/markdown-js/releases/download/v0.6.0-beta1/markdown-browser-0.6.0-beta1.tgz",
     "tetvas": "https://github.com/WalrusCow/tetvas.git",
     "snake": "https://github.com/WalrusCow/snake.git",
     "life": "https://github.com/WalrusCow/game-of-life.git",
